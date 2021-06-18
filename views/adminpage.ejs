@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>homepage</title>
+		  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Mukta:800" rel="stylesheet">
+
+	<style type="text/css">
+	body, html {
+	  height: 100%;
+	}
+
+
+	</style>
+	<style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+    width: 70%;
+    margin: auto;
+  }
+  </style>
+
+</head>
+<body style="background-image: url(https://images.unsplash.com/photo-1579264435938-ea1882f6d762?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);backface-visibility: visible;background-position: center;background-size: cover;background-repeat: no-repeat;">
+	<div class="navbar navbar-inverse set-radius-zero navbar-fixed-top" style="background-color: #bfd4f5;">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/" style="color:black; font-size:30px;">
+					 I Safe-Drive <span class="glyphicon glyphicon-lock"></span> I
+                </a>
+			</div>
+           <ul class="nav navbar-nav navbar-right">
+     	    <li style="font-size: 25px;"><a href="/logout" style="color: black;">Logout</a></li>
+                <li>
+                	<a href="/" target="_blank"><img src="/images/logo.png" alt="logo" height="40" width="40" style="position: relative;"></a>
+                </li>
+
+            </ul>
+            </div>
+        </div>
+        <div style="padding-top: 20%;text-align: center;">
+          <h1>ADMINPAGE WELCOMES YOU</h1>
+           <table class="table table-hover">
+          <th style="text-align: center;">User Name</th><th style="text-align: center;">Status</th>
+          <%user.forEach(function(user){%>
+          <tr>
+            <td>
+              <%=user.username%>
+            </td>
+            <td>
+              <%=user.status%>
+            </td>
+            <%if(user.status!="Approved"){%>
+            <td>
+              <a href="/approve/<%=user.username%>" class="btn btn-md btn-primary" >Approve</a>
+            </td>
+            <%}%>
+          </tr>
+          <%});%>
+        </table>
+        <a href="/adminaccept" class="btn btn-md btn-warning">Accept Request</a>
+        </div>
+      </body>
+      </html>

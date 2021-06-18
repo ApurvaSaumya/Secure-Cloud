@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>homepage</title>
+		  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Mukta:800" rel="stylesheet">
+
+	<style type="text/css">
+	body, html {
+	  height: 100%;
+	}
+
+
+	</style>
+	<style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+    width: 70%;
+    margin: auto;
+  }
+
+
+  .flash {
+   animation-name: flash;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: running;
+}
+
+@keyframes flash {
+    from {color: red;}
+    to {color: yellow;}
+}
+
+.flash1 {
+   animation-name: flash1;
+    animation-duration: 0.3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: running;
+}
+
+@keyframes flash1 {
+    from {color: green;}
+    to {color: yellow;}
+}
+  </style>
+
+</head>
+<body style="background-position: center;background-size: cover;background-image: url(https://images.unsplash.com/photo-1491895200222-0fc4a4c35e18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80);background-repeat: no-repeat;">
+	<div class="navbar navbar-inverse set-radius-zero navbar-fixed-top" style="background-color: #bfd4f5;">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/" style="color:black; font-size:30px;">
+					 I Safe-Drive <span class="glyphicon glyphicon-lock"></span> I
+                </a>
+			</div>
+           <ul class="nav navbar-nav navbar-right">
+     	    <li style="font-size: 25px;"><a href="/detect" style="color: black;"> Back</a></li>
+                <li>
+                	<a href="/"><img src="/images/logo.png" alt="logo" height="40" width="40" style="position: relative;"></a>
+                </li>
+
+            </ul>
+            </div>
+        </div>
+        <div class="container" style="padding-top: 20%;">
+        <div style="background-color: rgba(0,0,0,0.6);width: 60%;border-radius: 20px;text-align: center;" class="jumbotron">
+          <h3 style="color: white;"><%=url%></h3>
+          <%if(re==200){%>
+          <h3 class="flash1"> Status OK. No DDOS detected. Safe.</h3>
+          <%}else if(re==503){%>
+          <h3 class="flash"> 503: DDOS detected. Unsafe.</h3>
+        <%}%>
+        </div>
+      </div>
+      </body>
+      </html>

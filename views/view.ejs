@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>homepage</title>
+		  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Mukta:800" rel="stylesheet">
+
+	<style type="text/css">
+	body, html {
+	  height: 100%;
+	}
+
+
+	</style>
+	<style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+    width: 70%;
+    margin: auto;
+  }
+  </style>
+
+  <script type="text/javascript">
+  
+  function check()
+    {
+      var n = document.getElementById('no').value;
+      if(n>=parseInt("<%=file.secret.substring(0,3)%>") && n<=parseInt("<%=file.secret.substring(4)%>"))
+      {
+        document.getElementById('tab').style.display = "inline";
+       document.getElementById('no').style.display = "none";
+       document.getElementById('s').style.display = "none";
+      } 
+      else
+      {
+        alert("Wrong Hint produced !!!")
+      }
+    }
+  </script>
+
+</head>
+<body style="background-image: url(https://images.unsplash.com/photo-1491895200222-0fc4a4c35e18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80);backface-visibility: visible;background-position: center;background-size: cover;background-repeat: no-repeat;">
+	<div class="navbar navbar-inverse set-radius-zero navbar-fixed-top" style="background-color: #bfd4f5;">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/" style="color:black; font-size:30px;">
+					 I Safe-Drive <span class="glyphicon glyphicon-lock"></span> I
+                </a>
+			</div>
+           <ul class="nav navbar-nav navbar-right">
+     	    <li style="font-size: 25px;"><a href="/logout" style="color: black;">Logout</a></li>
+                <li>
+                	<a href="/" target="_blank"><img src="/images/logo.png" alt="logo" height="40" width="40" style="position: relative;"></a>
+                </li>
+
+            </ul>
+            </div>
+        </div>
+        <div style="padding-top: 20%;text-align: center;" class="container">
+          <h1>Files uploaded on Cloud</h1>
+            <input id="no" type="number" name="number" placeholder="Enter the hint">
+            <input type="submit" name="sub" onclick="check()" id="s" class="btn btn-md btn-success">
+           <table class="table" style="display: none;" id="tab">
+          <th>File Name</th><th>Text</th>
+          <tr>
+            <td>
+              <%=file.filename%>
+            </td>
+            <td><%=text%></td>
+          </tr>
+        </table>
+        </div>
+      </body>
+      </html>
